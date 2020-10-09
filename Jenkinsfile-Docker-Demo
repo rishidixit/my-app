@@ -9,7 +9,7 @@ node {
 
     }
     stage ('Build Docker Image') {
-        sh 'docker build -t rishidixit/dockerjenkinsdemo:2.0.0 .'
+        sh 'docker build -t rishidixit/dockerjenkinsdemo:3.0.0 .'
     }
      stage ('Push Docker Image') {
          withCredentials([string(credentialsId: 'dockerhub', variable: 'GithubPwd')]) {
