@@ -3,7 +3,7 @@ node {
         git credentialsId: 'github', url: 'https://github.com/rishidixit/my-app'
         }
     stage('Maven Package') {
-        def mnvHome = tool name" 'maven', type: 'maven'
+        def mnvHome = tool name: 'maven', type: 'maven'
         def mvnCMD = "${mnvHome}/bin/mvn"
         sh "${mvnCMD} clean package"
 
