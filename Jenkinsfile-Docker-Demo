@@ -2,4 +2,8 @@ node {
     stage ('Git CheckOut') {
         git credentialsId: 'github', url: 'https://github.com/rishidixit/my-app'
         }
+    stage('Maven Package') {
+        sh 'mvn clean package'
+
+    }
 }
