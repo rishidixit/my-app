@@ -8,4 +8,7 @@ node {
         sh "${mvnCMD} clean package"
 
     }
+    stage ('Build Docker Image') {
+        sh 'docker build -t rishidixit/dockerjenkinsdemo:2.0.0 .'
+    }
 }
