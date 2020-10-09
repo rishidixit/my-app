@@ -1,13 +1,11 @@
 node {
-    tools {
-       maven 'maven'
-    }
-
     stage ('Git CheckOut') {
         git credentialsId: 'github', url: 'https://github.com/rishidixit/my-app'
         }
     stage('Maven Package') {
-        sh 'mvn clean package'
+        def mnvHome = tool name" 'maven', type: 'maven'
+        def mvnCMD = "${mnvHome}/bin/mvn"
+        sh "${mvnCMD} clean package"
 
     }
 }
