@@ -16,10 +16,10 @@ node {
          sh "docker login -u rishidixit -p ${GithubPwd}"
         }
         
-        sh 'docker push rishidixit/dockerjenkinsdemo:2.0.0 '
+        sh 'docker push rishidixit/dockerjenkinsdemo:3.0.0 '
     }
     stage ('Docker Deployment') {
-        def dockerRun = 'sudo docker run -p 8090:8080 -d --name docker-jenkins-demo rishidixit/dockerjenkinsdemo:2.0.0'
+        def dockerRun = 'sudo docker run -p 8090:8080 -d --name docker-jenkins-demo rishidixit/dockerjenkinsdemo:3.0.0'
         sshagent(['Apache-Node']) {
         sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.91.1 ${dockerRun}"
          }
