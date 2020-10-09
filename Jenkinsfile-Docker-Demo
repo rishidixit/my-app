@@ -1,4 +1,8 @@
 node {
+    tools {
+       maven 'maven'
+    }
+
     stage ('Git CheckOut') {
         git credentialsId: 'github', url: 'https://github.com/rishidixit/my-app'
         }
